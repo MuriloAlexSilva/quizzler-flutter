@@ -37,6 +37,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
+                //TODO: asdasdasd
                 'This is where the question text will go.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -80,7 +81,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
+        //TODO: Quando vc inseri o TODO: ele aparece no rodape todos os TODOs que vc tem no projeto
       ],
     );
   }

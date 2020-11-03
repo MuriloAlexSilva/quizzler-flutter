@@ -25,6 +25,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> listaScore = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +39,6 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                //TODO: asdasdasd
                 'This is where the question text will go.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -61,7 +62,11 @@ class _QuizPageState extends State<QuizPage> {
                   fontSize: 20.0,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  listaScore.add(Icon(Icons.check, color: Colors.green));
+                });
+              },
             ),
           ),
         ),
@@ -77,11 +82,17 @@ class _QuizPageState extends State<QuizPage> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  listaScore.add(Icon(Icons.close, color: Colors.red));
+                });
+              },
             ),
           ),
         ),
-        //TODO: Quando vc inseri o TODO: ele aparece no rodape todos os TODOs que vc tem no projeto
+        Row(
+          children: listaScore,
+        ),
       ],
     );
   }

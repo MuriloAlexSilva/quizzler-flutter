@@ -26,6 +26,17 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> listaScore = [];
+  List<String> questions = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.', //Colocamos o \' para mostra como String o '.
+  ];
+  int questionNumber = 0;
+  List<bool> answer = [
+    false,
+    true,
+    true,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -64,7 +75,17 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  listaScore.add(Icon(Icons.check, color: Colors.green));
+                  bool correctAnswer = answer[
+                      questionNumber]; //Desta forma vc puxa o mesmo index das questions
+                  if (correctAnswer == true) {
+                    print("Você acertou");
+                    listaScore.add(Icon(Icons.check, color: Colors.green));
+                  } else {
+                    print("Você errou");
+                    listaScore.add(Icon(Icons.close, color: Colors.red));
+                  }
+
+                  questionNumber++;
                 });
               },
             ),
@@ -84,7 +105,17 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  listaScore.add(Icon(Icons.close, color: Colors.red));
+                  bool correctAnswer = answer[
+                      questionNumber]; //Desta forma vc puxa o mesmo index das questions
+                  if (correctAnswer == false) {
+                    print("Você acertou");
+                    listaScore.add(Icon(Icons.check, color: Colors.green));
+                  } else {
+                    print("Você errou");
+                    listaScore.add(Icon(Icons.close, color: Colors.red));
+                  }
+
+                  questionNumber++;
                 });
               },
             ),
